@@ -18,10 +18,9 @@
       path: /var/lib/rpm/.rpm.lock
       state: absent
 
-      - name: install dnf packages
+  - name: install dnf packages
     dnf:
-      name: ['bind-utils', 'iperf',
-'python3-pip', 'traceroute', 'whois']
+      name: ['bind-utils', 'iperf', 'python3-pip', 'traceroute', 'whois']
       state: latest
 
   - name: install pip packages
@@ -35,4 +34,4 @@
       recurse: yes
       owner: "{{ privateuser }}"
       group: "{{ privateuser }}"
-      mode: '0644'
+      mode: '0700'
