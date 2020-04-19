@@ -18,6 +18,12 @@ cd private-settings-Fedora-Remix-for-WSL/ansible
 sudo ansible-playbook -i hosts.yaml playbook-private-settings.yaml -v
 ```
 
+## 4. Start sshd
+
+```bash
+sudo /usr/sbin/sshd
+```
+
 ## Troubleshooting
 
 ```
