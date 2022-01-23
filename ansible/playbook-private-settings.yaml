@@ -32,17 +32,17 @@
       state: present
       key: "{{ lookup('file', 'files/yasu-homepc-ed25519.pub') }}"
 
-  - name: Create host rsa key
-    openssh_keypair:
-      path: /etc/ssh/ssh_host_rsa_key
-      type: rsa
-      size: 3072
+#  - name: Create host rsa key
+#    openssh_keypair:
+#      path: /etc/ssh/ssh_host_rsa_key
+#      type: rsa
+#      size: 3072
 
-  - name: Create host ecdsa key
-    openssh_keypair:
-      path: /etc/ssh/ssh_host_ecdsa_key
-      type: ecdsa
-      size: 256
+#  - name: Create host ecdsa key
+#    openssh_keypair:
+#      path: /etc/ssh/ssh_host_ecdsa_key
+#      type: ecdsa
+#      size: 256
 
   - name: Create host ed25519 key
     openssh_keypair:
