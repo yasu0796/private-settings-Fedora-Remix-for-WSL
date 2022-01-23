@@ -3,20 +3,10 @@
   gather_facts: false
   tasks:
 
-  - name: Remove rpm lock file (may be bug)
-    file:
-      path: /var/lib/rpm/.rpm.lock
-      state: absent
-
   - name: upgrade all packages
     dnf:
       name: "*"
       state: latest
-
-  - name: Remove rpm lock file (may be bug)
-    file:
-      path: /var/lib/rpm/.rpm.lock
-      state: absent
 
   - name: install dnf packages
     dnf:
