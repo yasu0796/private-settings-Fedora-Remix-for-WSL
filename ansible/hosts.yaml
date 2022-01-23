@@ -4,4 +4,6 @@ all:
     localhost:
       ansible_connection: local
   vars:
+    gitemail: yasu0796@msn.com
+    gituser: yasu0796
     privateuser: yokamura

@@ -53,7 +53,7 @@
     git_config:
       name: user.email
       scope: global
-      value: "yasu0796@msn.com"
+      value: "{{ gitemail }}"
     become: yes
     become_user: "{{ privateuser }}"
 
@@ -61,6 +61,6 @@
     git_config:
       name: user.name
       scope: global
-      value: "yasu0796"
+      value: "{{ giteuser }}"
     become: yes
     become_user: "{{ privateuser }}"
