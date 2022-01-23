@@ -10,12 +10,12 @@
 
   - name: install dnf packages
     dnf:
-      name: ['bind-utils', 'iperf', 'jq', 'pylint', 'python3-pip', 'traceroute', 'whois', 'yamllint']
+      name: ['bind-utils', 'iperf', 'jq', 'pylint', 'python3-ansible-lint', 'python3-pip', 'traceroute', 'whois', 'yamllint']
       state: latest
 
   - name: install pip packages
     pip:
-      name: ['ansible-lint']
+      name: []
 
   - name: create ~/.ssh/keys
     file:
