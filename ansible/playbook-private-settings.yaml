@@ -61,6 +61,6 @@
     git_config:
       name: user.name
       scope: global
-      value: "{{ giteuser }}"
+      value: "{{ gituser }}"
     become: yes
     become_user: "{{ privateuser }}"
