@@ -4,64 +4,64 @@
   gather_facts: false
   tasks:
 
-  - name: Upgrade all packages
-    dnf:
+   - name: Upgrade all packages
+     dnf:
       name: "*"
-      state: latest
+      state: latest # noqa package-latest
 
-  - name: Install dnf packages
-    dnf:
+   - name: Install dnf packages
+     dnf:
       name: ['bind-utils', 'iperf', 'iperf3', 'jq', 'pylint', 'python3-ansible-lint', 'python3-pip', 'traceroute', 'wget', 'whois', 'yamllint']
-      state: latest
+      state: present
 
-  - name: Install pip packages
-    pip:
+   - name: Install pip packages
+     pip:
       name: []
 
-  - name: Create ~/.ssh/keys
-    file:
+   - name: Create ~/.ssh/keys
+     file:
       path: "/home/{{ privateuser }}/.ssh/keys"
       state: directory
-      recurse: yes
+      recurse: true
       owner: "{{ privateuser }}"
       group: "{{ privateuser }}"
       mode: '0700'
 
-  - name: Set authorized key
-    authorized_key:
+   - name: Set authorized key
+     authorized_key:
       user: "{{ privateuser }}"
       state: present
       key: "{{ lookup('file', 'files/yasu-homepc-ed25519.pub') }}"
 
-#  - name: Create host rsa key
-#    openssh_keypair:
+#   - name: Create host rsa key
+#     openssh_keypair:
 #      path: /etc/ssh/ssh_host_rsa_key
 #      type: rsa
 #      size: 3072
 
-#  - name: Create host ecdsa key
-#    openssh_keypair:
+#   - name: Create host ecdsa key
+#     openssh_keypair:
 #      path: /etc/ssh/ssh_host_ecdsa_key
 #      type: ecdsa
 #      size: 256
 
-  - name: Create host ed25519 key
-    openssh_keypair:
+   - name: Create host ed25519 key
+     openssh_keypair:
       path: /etc/ssh/ssh_host_ed25519_key
       type: ed25519
 
-  - name: Set git user.email
-    git_config:
+   - name: Set git user.email
+     git_config:
       name: user.email
       scope: global
       value: "{{ gitemail }}"
-    become: yes
-    become_user: "{{ privateuser }}"
+     become: true
+     become_user: "{{ privateuser }}"
 
-  - name: Set git user.name
-    git_config:
+   - name: Set git user.name
+     git_config:
       name: user.name
       scope: global
       value: "{{ gituser }}"
-    become: yes
-    become_user: "{{ privateuser }}"
+     become: true
+     become_user: "{{ privateuser }}"
