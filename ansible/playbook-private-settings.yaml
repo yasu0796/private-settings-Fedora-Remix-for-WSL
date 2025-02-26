@@ -11,7 +11,7 @@
 
   - name: Install dnf packages
     dnf:
-      name: ['bind-utils', 'iperf', 'iperf3', 'jq', 'pylint', 'python3-ansible-lint', 'python3-pip', 'traceroute', 'whois', 'yamllint']
+      name: ['bind-utils', 'iperf', 'iperf3', 'jq', 'pylint', 'python3-ansible-lint', 'python3-pip', 'traceroute', 'wget', 'whois', 'yamllint']
       state: latest
 
   - name: Install pip packages
