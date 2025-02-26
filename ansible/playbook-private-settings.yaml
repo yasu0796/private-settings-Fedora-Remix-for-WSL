@@ -17,6 +17,7 @@
    - name: Install pip packages
      pip:
       name: []
+     ignore_errors: true
 
    - name: Create ~/.ssh/keys
      file:
